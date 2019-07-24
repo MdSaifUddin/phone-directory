@@ -1,22 +1,49 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from './Header.js';
+import './App.css';
 
-function App() {
-  return (
-    <div >
-      <Header/>
-      {/* <div className="header">
-        Phone Directory
-      </div>
-      <button>Add</button>
+class App extends Component {
+  render() {
+    let subscribers=[
+      {
+        id:1,
+        name:'Saif',
+        phone:3452345234
+      },
+      {
+        id:2,
+        name:'Yasir',
+        phone:234523452345
+      }
+    ]
+    return (
+      
       <div>
-        <span>Name</span><br />>
-        <span>Phone</span>
-      </div> */}
-      <label htmlFor="name">Name:</label>
-      <input id="name" type="text" placeholder="Type here" defaultValue="Saif"/>
-    </div>
-  );
-}
+        {/* <Header/>
+        <button>Add</button>
+        <div>
+          <span>Name</span><br />
+          <span>Phone</span> */}
+        <Header />
+        <div className="component-body-container">
+          <button className="custom-btn add-btn">Add</button>
 
-export default App;
+          <div className="grid-container heading-container">
+            <span className="grid-item name-heading">Name</span>
+            <span className="grid-item phone-heading">Phone</span>
+          </div>
+          {
+          subscribers.map(sub=>{
+            return <div key={sub.id} className="grid-container heading-container">
+            <span className="grid-item name-heading">{sub.name}</span>
+            <span className="grid-item phone-heading">{sub.phone}</span>
+            <button className="custom-btn delete-btn">Delete</button>
+          </div>
+          })
+        }
+        </div>
+      </div>
+      
+    );
+    }}
+    export default App;
