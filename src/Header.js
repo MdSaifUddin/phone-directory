@@ -1,9 +1,12 @@
 import React from 'react';
-const Header=function(){
-    return(
-        <div style={{textAlign:'center',padding:20,textTransform:'uppercase',background:'#000',color:'white'}}>
-        Phone Directory
+import './Header.css';
+
+const Header = function (props) {
+    return (
+        <div className="header">
+            {props.heading}
         </div>
     )
-    }
+}
+
 export default Header;
